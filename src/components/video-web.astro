@@ -2,7 +2,7 @@
 import videoSrc from "../assets/video.mp4";
 import mincapLogo from "../assets/mincap_logo.png";
 ---
-<div class="video-wrap">
+<div class="video-web">
   <video
     class="hero-video"
     autoplay
@@ -14,40 +14,43 @@ import mincapLogo from "../assets/mincap_logo.png";
   >
     <source src={videoSrc} type="video/mp4">
   </video>
-  <div class="video-row">
-    <span class="row-text row-left">PRIMA</span>
-    <span class="row-text row-center">Formatos de representación en la arquitectura chilena</span>
+  <div class="info-row">
+    <span class="row-left">PRIMA</span>
+    <span class="row-center">Formatos de representación en la arquitectura chilena</span>
     <img class="row-logo" src={mincapLogo.src} alt="Mincap logo" />
   </div>
 </div>
 
 <style>
-  .video-wrap {
+  .video-web {
     width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 24px;
+    padding: 6vh 0;
+    box-sizing: border-box;
   }
 
   .hero-video {
-    width: 50%;
+    width: 70%;
     height: auto;
-    max-height: 80vh;
+    max-height: 70vh;
     display: block;
     object-fit: contain;
     opacity: 0;
     transition: opacity 240ms ease-out;
     background: #000;
+    margin: 0 auto;
   }
 
   .hero-video.is-ready {
     opacity: 1;
   }
 
-  .video-row {
+  .info-row {
     width: 80%;
     display: flex;
     align-items: center;
@@ -56,15 +59,11 @@ import mincapLogo from "../assets/mincap_logo.png";
     color: #fff;
     font-size: 0.95rem;
     letter-spacing: 0.08em;
-    text-transform: none;
-  }
-
-  .row-text {
-    white-space: nowrap;
+    min-height: 80px;
   }
 
   .row-left {
-    flex: 0 0 auto;
+    white-space: nowrap;
   }
 
   .row-center {
@@ -72,7 +71,9 @@ import mincapLogo from "../assets/mincap_logo.png";
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    max-width: 60%;
+    max-width: 52%;
+    white-space: normal;
+    padding: 0 12px;
   }
 
   .row-logo {
@@ -80,22 +81,11 @@ import mincapLogo from "../assets/mincap_logo.png";
     width: auto;
     display: block;
     object-fit: contain;
-    flex: 0 0 auto;
   }
 
-  @media (max-width: 700px) {
-    .hero-video,
-    .video-row {
-      width: 92%;
-    }
-
-    .video-row {
-      font-size: 0.85rem;
-      letter-spacing: 0.06em;
-    }
-
-    .row-logo {
-      height: 64px;
+  @media (max-width: 900px) {
+    .video-web {
+      display: none;
     }
   }
 </style>
