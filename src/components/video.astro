@@ -9,6 +9,8 @@ import mincapLogo from "../assets/mincap_logo.png";
     muted
     playsinline
     loop
+    preload="auto"
+    onloadeddata="this.classList.add('is-ready')"
   >
     <source src={videoSrc} type="video/mp4">
   </video>
@@ -36,6 +38,13 @@ import mincapLogo from "../assets/mincap_logo.png";
     max-height: 80vh;
     display: block;
     object-fit: contain;
+    opacity: 0;
+    transition: opacity 240ms ease-out;
+    background: #000;
+  }
+
+  .hero-video.is-ready {
+    opacity: 1;
   }
 
   .video-row {
